@@ -8,12 +8,14 @@ async function readGridFromURL(url) {
     reader = document.body.getReader();
     line = await reader.read();
     console.log(line);
+    var pageText
     for (var i = 0; i < line.value.length; i++) {
-        console.log(String.fromCharCode(line.value[i]));
+            pageText = pageText + String.fromCharCode(line.value[i]);
     }
+    console.log(pageText)
 }
 
 function printGrid(grid) {}
 
 
-printGridFromURL("http://localhost:3005/");
+printGridFromURL("http://localhost:3005/icecream.html");
