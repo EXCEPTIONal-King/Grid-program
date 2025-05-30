@@ -16,11 +16,9 @@ async function readGridFromURL(url) {
         }
         console.log(pageText.slice(pageText.length - 20));
     } while (line.done == false);
+   
 
-
-    console.log(pageText);
-
-    console.log(line);
+    //console.log(line);
     //get table
 
     let max_y = 0;
@@ -30,12 +28,13 @@ async function readGridFromURL(url) {
 
     let prev_row_index = 0;
 
-
+    
 
     while (pageText.indexOf("<tr", prev_row_index) != -1) {
         prev_row_index = pageText.indexOf("<tr", prev_row_index);
+        console.log(pageText.indexOf("<tr", prev_row_index));
         let lead_in_string = "<span class=\"c1\">";
-        let index_reader = indexOf(lead_in_string, page_row_index);
+        let index_reader = pageText.indexOf(lead_in_string, prev_row_index);
         index_reader = index_reader + lead_in_string.length;
         let x_coord = pageText.charAt(index_reader);
         index_reader = pageText.indexOf(lead_in_string, index_reader);
@@ -62,4 +61,4 @@ async function readGridFromURL(url) {
 
 
 //printGridFromURL("http://localhost:3005/icecream.html");
-printGridFromURL("https://docs.google.com/document/d/e/2PACX-1vRMx5YQlZNa3rha8dYYxmv-QIQ3YJe8tbI3kqcuC7lQiZm-CSEznKfN_HYNSpoXcZIV3Y_O3YoUB1ecq/pub");
+printGridFromURL("https://docs.google.com/document/d/e/2PACX-1vRMx5YQlZNa3ra8dYYxmv-QIQ3YJe8tbI3kqcuC7lQiZm-CSEznKfN_HYNSpoXcZIV3Y_O3YoUB1ecq/pub");
