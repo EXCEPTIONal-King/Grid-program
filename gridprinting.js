@@ -56,7 +56,14 @@ async function readGridFromURL(url) {
 
     //make grid
 
-}
+
+      
+    var grid;
+    for (var k = 0; k < elements.length; k++) {
+        grid[elements[k][0]][elements[k][2]] = elements[k][1]
+    }
+    console.log(grid);
+}   
 
 
 
