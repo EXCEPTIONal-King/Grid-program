@@ -21,15 +21,17 @@ async function readGridFromURL(url) {
     //console.log(line);
     //get table
 
+    //size of grid
     let max_y = 0;
     let max_x = 0;
-    let elements = [];
-    let array_index = 0;
+    //elements to print
+    let elements = []; //store data from table
 
-    let prev_row_index = 0;
+    let array_index = 0;//position of element to place
+    let prev_row_index = 0;//manage position in table
 
     
-
+    //loop extracting 1 element from the table at a time
     while (pageText.indexOf("<tr", prev_row_index) != -1) {
         prev_row_index = pageText.indexOf("<tr", prev_row_index);
         console.log(pageText.indexOf("<tr", prev_row_index));
@@ -55,8 +57,6 @@ async function readGridFromURL(url) {
 
 
     //make grid
-
-
       
     var grid;
     for (var k = 0; k < elements.length; k++) {
